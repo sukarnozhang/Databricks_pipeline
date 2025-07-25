@@ -1,24 +1,22 @@
-name: 'dbt_databricks'
-version: '1.0.0'
+name: 'databricks_demo'
+version: '1.0'
 config-version: 2
 
 profile: 'databricks_profile'
 
 model-paths: ["models"]
-analysis-paths: ["analysis"]
-test-paths: ["tests"]
 seed-paths: ["seeds"]
-macro-paths: ["macros"]
-snapshot-paths: ["snapshots"]
-
-target-path: "target"
-clean-targets: ["target", "dbt_modules"]
 
 models:
-  dbt_databricks:
+  databricks_demo:
+    +catalog: workspace       
     bronze:
-      +materialized: table
+      +schema: bronze_schema  
+      materialized: table
     silver:
-      +materialized: incremental
+      +schema: silver_schema 
+      materialized: table
     gold:
-      +materialized: view
+      +schema: gold_schema   
+      materialized: table
+
