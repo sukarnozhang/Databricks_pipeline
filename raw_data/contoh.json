@@ -1,0 +1,79 @@
+{
+  "time": "2025-07-25",
+  "systems": {
+    "equipment_id": "equipment_001",
+    "component": {
+      "columns": {
+        "column_id": "column_001"
+      }
+    },
+    "im_equipment_id": "unspecified"
+  },
+
+  "users": {
+    "my_submit": {
+      "id": "user_001",
+      "datetime": "2025-07-25T00:00:00Z"
+    },
+    "my_review": {
+      "id": "user_002",
+      "datetime": "2025-07-25T01:00:00Z"
+    },
+    "my_approval": {
+      "id": "user_003",
+      "datetime": "2025-07-25T02:00:00Z"
+    },
+    "my_status": {
+      "status": "pending"
+    }
+  },
+
+  "methods": {
+    "sop": "sop_001",
+    "id": "method_001",
+    "method_id": "method_v3.0",
+    "template_id": "template_final_v2",
+    "report_template_version": "3",
+    "sequence_id": "sequence_c",
+    "sequence_version": "11"
+  },
+
+  "runs": [
+    {
+      "in_num": "1",
+      "in_name": "compound_001",
+      "pk": "run_001"
+    }
+  ],
+
+  "sst": [
+    {
+      "fk": "run_001",
+      "sst_result": {
+        "number": "1",
+        "in_num": "inj_001",
+        "in_name": "injection_001",
+        "sst_name": "not_applicable",
+        "peak": "not_applicable",
+        "eval_result": "2.0",
+        "result": "not_applicable"
+      }
+    }
+  ],
+
+  "results": [
+    {
+      "fk": "run_001",
+      "result": {
+        "sample_id": "sample_001",
+        "assay_id": "assay_001",
+        "Type": "type_001",
+        "component": "component_001",
+        "unit": "%",
+        "detector_id": "detector_001",
+        "result_values": "2",
+        "number_of_averaged_samples": "1"
+      }
+    }
+  ]
+}
