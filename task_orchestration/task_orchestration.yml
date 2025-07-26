@@ -1,7 +1,7 @@
 resources:
   jobs:
-    Silver:
-      name: Silver
+    Full_ETL:
+      name: Full ETL
       tasks:
         - task_key: silver_create_schema
           notebook_task:
