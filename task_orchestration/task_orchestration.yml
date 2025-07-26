@@ -1,0 +1,118 @@
+resources:
+  jobs:
+    Silver:
+      name: Silver
+      tasks:
+        - task_key: silver_create_schema
+          notebook_task:
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/silver/create_schema
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true
+        - task_key: silver_json_to_delta
+          depends_on:
+            - task_key: silver_create_schema
+          notebook_task:
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/silver/json_to_delta
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true
+        - task_key: stg_methods
+          depends_on:
+            - task_key: silver_json_to_delta
+          notebook_task:
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/stg_methods
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true       
+        - task_key: stg_runs
+          depends_on:
+            - task_key: silver_json_to_delta
+          notebook_task:
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/stg_runs
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true
+        - task_key: stg_sst
+          depends_on:
+            - task_key: silver_json_to_delta
+          notebook_task:
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/stg_sst
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true  
+        - task_key: stg_systems
+          depends_on:
+            - task_key: silver_json_to_delta
+          notebook_task:
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/stg_systems
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true
+        - task_key: stg_results
+          depends_on:
+            - task_key: silver_json_to_delta
+          notebook_task:
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/stg_results
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true  
+        - task_key: stg_users
+          depends_on:
+            - task_key: silver_json_to_delta
+          notebook_task:
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/stg_users
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true
+        - task_key: serving_methods
+          depends_on:
+            - task_key: stg_methods
+          notebook_task:
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/serving_methods
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true       
+        - task_key: serving_runs
+          depends_on:
+            - task_key: stg_runs
+          notebook_task:
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/serving_runs
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true
+        - task_key: serving_sst
+          depends_on:
+            - task_key: stg_sst
+          notebook_task:
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/serving_sst
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true  
+        - task_key: serving_systems
+          depends_on:
+            - task_key: stg_systems
+          notebook_task:
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/serving_systems
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true
+        - task_key: serving_results
+          depends_on:
+            - task_key: stg_results
+          notebook_task:
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/serving_results
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true  
+        - task_key: serving_users
+          depends_on:
+            - task_key: stg_users
+          notebook_task:
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/serving_users
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true    
+      queue:
+        enabled: true
+      performance_target: STANDARD
