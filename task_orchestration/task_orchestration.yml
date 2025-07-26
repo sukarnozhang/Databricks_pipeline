@@ -25,11 +25,11 @@ resources:
             source: WORKSPACE
           min_retry_interval_millis: 900000
           disable_auto_optimization: true
-        - task_key: serving_methods
+        - task_key: dimension_methods
           depends_on:
             - task_key: stg_methods
           notebook_task:
-            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/serving_methods
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/dimension_methods
             source: WORKSPACE
           min_retry_interval_millis: 900000
           disable_auto_optimization: true
@@ -41,11 +41,11 @@ resources:
             source: WORKSPACE
           min_retry_interval_millis: 900000
           disable_auto_optimization: true
-        - task_key: serving_results
+        - task_key: fact_results
           depends_on:
             - task_key: stg_results
           notebook_task:
-            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/serving_results
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/fact_results
             source: WORKSPACE
           min_retry_interval_millis: 900000
           disable_auto_optimization: true
@@ -57,11 +57,11 @@ resources:
             source: WORKSPACE
           min_retry_interval_millis: 900000
           disable_auto_optimization: true
-        - task_key: serving_runs
+        - task_key: dimension_runs
           depends_on:
             - task_key: stg_runs
           notebook_task:
-            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/serving_runs
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/dimension_runs
             source: WORKSPACE
           min_retry_interval_millis: 900000
           disable_auto_optimization: true
@@ -73,11 +73,11 @@ resources:
             source: WORKSPACE
           min_retry_interval_millis: 900000
           disable_auto_optimization: true
-        - task_key: serving_sst
+        - task_key: fact_sst
           depends_on:
             - task_key: stg_sst
           notebook_task:
-            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/serving_sst
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/fact_sst
             source: WORKSPACE
           min_retry_interval_millis: 900000
           disable_auto_optimization: true
@@ -89,11 +89,11 @@ resources:
             source: WORKSPACE
           min_retry_interval_millis: 900000
           disable_auto_optimization: true
-        - task_key: serving_systems
+        - task_key: dimension_systems
           depends_on:
             - task_key: stg_systems
           notebook_task:
-            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/serving_systems
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/dimension_systems
             source: WORKSPACE
           min_retry_interval_millis: 900000
           disable_auto_optimization: true
@@ -105,22 +105,22 @@ resources:
             source: WORKSPACE
           min_retry_interval_millis: 900000
           disable_auto_optimization: true
-        - task_key: serving_users
+        - task_key: dimension_users
           depends_on:
             - task_key: stg_users
           notebook_task:
-            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/serving_users
+            notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/staging/dimension_users
             source: WORKSPACE
           min_retry_interval_millis: 900000
           disable_auto_optimization: true
         - task_key: run_sst_result
           depends_on:
-            - task_key: serving_runs
-            - task_key: serving_systems
-            - task_key: serving_sst
-            - task_key: serving_users
-            - task_key: serving_results
-            - task_key: serving_methods
+            - task_key: dimension_runs
+            - task_key: dimension_systems
+            - task_key: fact_sst
+            - task_key: dimension_users
+            - task_key: fact_results
+            - task_key: dimension_methods
           notebook_task:
             notebook_path: /Workspace/Users/sukarno.zhang@gmail.com/practice_databricks/gold/serving/run_sst_result
             source: WORKSPACE
