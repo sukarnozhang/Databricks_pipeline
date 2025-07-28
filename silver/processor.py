@@ -1,5 +1,5 @@
 # Step 1 - Establish AWS connections
-def establish_aws_connection():
+def establish_aws_connection(spark):
     # Step 1: Get AWS credentials from Databricks Secrets
     aws_access_key = dbutils.secrets.get(scope="aws-secrets", key="aws-access-key")
     aws_secret_key = dbutils.secrets.get(scope="aws-secrets", key="aws-secret-key")
