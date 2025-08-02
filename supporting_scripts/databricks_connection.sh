@@ -1,7 +1,7 @@
 pip install databricks-cli
 
 databricks configure --token
-https://dbc-401be88c-2053.cloud.databricks.co
+https://dbc-1dd9f0c8-6186.cloud.databricks.com/
 <your token>
 
 databricks secrets create-scope --scope aws-secrets
