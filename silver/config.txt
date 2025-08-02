@@ -1,3 +1,4 @@
 bucket = databricks-practice-sk
 prefix = raw_data/
-tracking_table = workspace.silver_schema.ingested_files_log
+files_tracking_table = workspace.silver_schema.ingested_files_log
+last_ingested_times = workspace.silver_schema.last_ingested_times
