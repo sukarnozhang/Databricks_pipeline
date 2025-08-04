@@ -13,7 +13,7 @@ resources:
           depends_on:
             - task_key: silver_create_schema
           notebook_task:
-            notebook_path: /Workspace/Users/max.sukarno@gmail.com/Databricks_pipeline/silver/json_to_delta
+            notebook_path: /Workspace/Users/max.sukarno@gmail.com/Databricks_pipeline/silver/main
             source: WORKSPACE
           min_retry_interval_millis: 900000
           disable_auto_optimization: true
