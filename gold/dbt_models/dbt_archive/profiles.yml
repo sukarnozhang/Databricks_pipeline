@@ -1,0 +1,11 @@
+databricks_profile:
+  target: databricks_cluster
+  outputs:
+    databricks_cluster:
+      type: databricks
+      catalog: workspace  # 🔁 Change to 'main' or your Unity Catalog like 'sandbox'
+      schema: gold_serving          # Schema within catalog
+      host: https://dbc-af337988-af06.cloud.databricks.com
+      http_path: /sql/1.0/warehouses/37422afd18a4b543
+      token: 
+      threads: 8

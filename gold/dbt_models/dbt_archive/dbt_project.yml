@@ -9,14 +9,14 @@ seed-paths: ["seeds"]
 
 models:
   databricks_demo:
-    +catalog: workspace       
+    +catalog: workspace
     bronze:
-      +schema: bronze_schema  
+      +schema: gold_serving
       materialized: table
     silver:
       +schema: silver_schema 
       materialized: table
     gold:
-      +schema: gold_schema   
+      +schema: gold_staging   
       materialized: table
 
